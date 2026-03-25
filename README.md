@@ -34,6 +34,27 @@
 <img width="1862" height="667" alt="transcript exor" src="https://github.com/user-attachments/assets/7a284c5f-61d2-433a-8792-5e9ccee27837" /><br>
 ### WAVEFORM
 <img width="1897" height="691" alt="exor_waveform" src="https://github.com/user-attachments/assets/7b5b7d46-51d9-480c-926f-70270d792acb" /><br>
-## 4. NAND GATE
-## 5. NOR GATE
 
+## 4. NAND GATE
+### VERILOG CODE
+<img width="483" height="221" alt="nand code" src="https://github.com/user-attachments/assets/4f31693c-3ca3-47f2-92f9-3cc9479e610d" /><br>
+### TESTBENCH
+<img width="771" height="392" alt="nand tb" src="https://github.com/user-attachments/assets/47645031-f91f-41a8-8fbb-8156c46f1dd5" /><br>
+### RUN
+<img width="648" height="217" alt="nand run" src="https://github.com/user-attachments/assets/d88a2f39-7059-492d-9a23-3d5cc2e06845" /><br>
+### TRANSCRIPT
+<img width="997" height="497" alt="nand script" src="https://github.com/user-attachments/assets/9851ed8a-5b64-49c9-badf-8c3836950e8f" /><br>
+### WAVEFORM
+<img width="1893" height="445" alt="nand waveform" src="https://github.com/user-attachments/assets/6cfdb855-ad7c-4cfc-92bc-9a7c1ff3cad3" /><br>
+
+## 5. NOR GATE
+### VERILOG CODE
+<img width="472" height="212" alt="nor code" src="https://github.com/user-attachments/assets/f4db64ac-3023-4236-811f-360c358f63c6" /><br>
+### TESTBENCH
+<img width="721" height="407" alt="nor tb code" src="https://github.com/user-attachments/assets/5c496384-fcd0-4255-bdc1-7602c7ae543f" /><br>
+### RUN
+<img width="487" height="173" alt="nor run" src="https://github.com/user-attachments/assets/abb70378-fc98-4572-a991-893cf3f5f5c9" /><br>
+### TRANSCRIPT
+<img width="1083" height="503" alt="nor script" src="https://github.com/user-attachments/assets/3f3fc57c-c760-42db-b925-27b5b6675600" /><br>
+### WAVEFORM
+<img width="1888" height="343" alt="nor waveform" src="https://github.com/user-attachments/assets/7c0558bb-592b-457f-a2c3-ed47da446806" /><br>
