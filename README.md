@@ -1,4 +1,4 @@
-# Basic Logic Gates using Model sim and Notepad++
+# Basic Logic Gates using Model sim and Notepad++ (25/03/2026)
 ## 1. AND GATE
 ### VERILOG CODE
 <img width="411" height="186" alt="and code" src="https://github.com/user-attachments/assets/e0dd57db-0035-4cee-b28e-896ea7248859" /><br>
