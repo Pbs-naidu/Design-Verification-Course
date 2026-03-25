@@ -21,9 +21,19 @@
 ### TRANSCRIPT
 <img width="460" height="180" alt="or do file - Copy" src="https://github.com/user-attachments/assets/351e21a0-53f0-4ac6-a283-0f60044102d4" /><br>
 ### WAVEFORM
-<img width="1907" height="311" alt="or waveform - Copy" src="https://github.com/user-attachments/assets/9d08574f-b5c3-4b2f-9e13-f19ec9e0c852" />
+<img width="1907" height="311" alt="or waveform - Copy" src="https://github.com/user-attachments/assets/9d08574f-b5c3-4b2f-9e13-f19ec9e0c852" /><br>
 
 ## 3. EXOR GATE
+### VERILOG CODE
+<img width="447" height="217" alt="xor code" src="https://github.com/user-attachments/assets/d9d0fb42-05d9-4870-bc49-6f26d5fe1c4c" /><br>
+### TESTBENCH
+<img width="675" height="367" alt="xor tb" src="https://github.com/user-attachments/assets/92e5f5a3-c58d-4303-ae09-d4680aaa96fa" /><br>
+### RUN
+<img width="1916" height="597" alt="or_gate_run_file" src="https://github.com/user-attachments/assets/a34e1622-9ac3-48cb-bcad-68a272b031e8" /><br>
+### TRANSCRIPT
+<img width="1862" height="667" alt="transcript exor" src="https://github.com/user-attachments/assets/7a284c5f-61d2-433a-8792-5e9ccee27837" /><br>
+### WAVEFORM
+<img width="1897" height="691" alt="exor_waveform" src="https://github.com/user-attachments/assets/7b5b7d46-51d9-480c-926f-70270d792acb" /><br>
 ## 4. NAND GATE
 ## 5. NOR GATE
 
