@@ -121,4 +121,173 @@ run -all
 ### TRANSCRIPT
 <img width="988" height="467" alt="script half adder" src="https://github.com/user-attachments/assets/92feb676-2ef3-4060-8009-f54d3b9459de" /><br>
 ### WAVEFORM
-<img width="1888" height="343" alt="nor waveform" src="https://github.com/user-attachments/assets/7c0558bb-592b-457f-a2c3-ed47da446806" /><br>
+<img width="1918" height="405" alt="half adder waveform" src="https://github.com/user-attachments/assets/9a89fbde-7eeb-42e3-b006-83bb54b57c8c" /><br>
+
+## FULL ADDER
+### VERILOG CODE
+```bash
+module full_adder(
+input [2:0] a1,
+output s,c
+);
+wire s1,c1,c2;
+
+half_adder ha1(.a({a1[2], a1[1]}), .sum(s1), .carry(c1)); //connecting by order
+half_adder ha2({s1,a1[0]},s,c2); //connecting by name
+or o1(c,c1,c2);
+
+endmodule
+```
+### TESTBENCH
+#### 1) $display
+```bash
+
+module full_adder_tb();
+reg [2:0] a1;
+wire sum,carry;
+
+full_adder dut(.a1(a1), .s(sum), .c(carry));
+initial begin
+$display("time = %t,a1=%b,sum=%b,carry=%b",$time,a1,sum,carry);
+a1=3'b000;
+#5; 
+a1=3'b001;
+#5; a1=3'b010;
+#5; a1=3'd3;
+$display("time = %t,a1=%b,sum=%b,carry=%b",$time,a1,sum,carry);
+#5; a1=3'd4;
+#5; a1=3'd5;
+#5; a1=3'd6;
+#5; a1=3'd7;
+end
+endmodule
+
+```
+### RUN
+```bash
+vlib work 
+vlog half_adder.v
+vlog half_adder_tb.v +acc
+vsim work.half_adder_tb +acc
+add wave -r * 
+run -all
+```
+### TRANSCRIPT
+<img width="987" height="632" alt="script for display" src="https://github.com/user-attachments/assets/b58c200e-c11b-43d1-9400-4ffba141bf3c" />
+<br>
+
+#### 2) $write
+```bash
+
+module full_adder_tb();
+reg [2:0] a1;
+wire sum,carry;
+
+full_adder dut(.a1(a1), .s(sum), .c(carry));
+initial begin
+
+a1=3'b000;
+#5; 
+a1=3'b001;
+#5; a1=3'b010;
+#5; a1=3'd3;
+$write("time = %t,a1=%b,sum=%b,carry=%b",$time,a1,sum,carry);
+#5; a1=3'd4;
+$write("time = %t,a1=%b,sum=%b,carry=%b",$time,a1,sum,carry);
+#5; a1=3'd5;
+#5; a1=3'd6;
+#5; a1=3'd7;
+end
+endmodule
+
+```
+### RUN
+```bash
+vlib work 
+vlog half_adder.v
+vlog half_adder_tb.v +acc
+vsim work.half_adder_tb +acc
+add wave -r * 
+run -all
+```
+### TRANSCRIPT
+<img width="1035" height="635" alt="script for write full adder" src="https://github.com/user-attachments/assets/52a96f3e-5933-4586-a5d2-c842e1c06eca" />
+<br>
+
+#### 3) $strobe and $display 
+```bash
+
+module full_adder_tb();
+reg [2:0] a1;
+wire sum,carry;
+
+full_adder dut(.a1(a1), .s(sum), .c(carry));
+initial begin
+
+a1=3'b000;
+#0; 
+a1=3'b001;
+$display("time = %t,a1=%b,sum=%b,carry=%b",$time,a1,sum,carry);
+$strobe("time = %t,a1=%b,sum=%b,carry=%b",$time,a1,sum,carry);
+#5; a1=3'b010;
+#5; a1=3'd3;
+#5; a1=3'd4;
+#5; a1=3'd5;
+#5; a1=3'd6;
+#5; a1=3'd7;
+end
+endmodule
+
+```
+### RUN
+```bash
+vlib work 
+vlog half_adder.v
+vlog half_adder_tb.v +acc
+vsim work.half_adder_tb +acc
+add wave -r * 
+run -all
+```
+### TRANSCRIPT
+<img width="1918" height="646" alt="display vs strobe transcript" src="https://github.com/user-attachments/assets/838f05a0-a160-461a-bda0-d9031a9d66bd" />
+<br>
+
+#### 4) $strobe and $display 
+```bash
+
+module full_adder_tb();
+reg [2:0] a1;
+wire sum,carry;
+
+full_adder dut(.a1(a1), .s(sum), .c(carry));
+initial begin
+$monitor("time = %t,a1=%b,sum=%b,carry=%b",$time,a1,sum,carry);
+a1=3'b000;
+#5; 
+a1=3'b001;
+#5; a1=3'b010;
+#5; a1=3'd3;
+#5; a1=3'd4;
+#5; a1=3'd5;
+#5; a1=3'd6;
+#5; a1=3'd7;
+end
+endmodule
+
+```
+### RUN
+```bash
+vlib work 
+vlog half_adder.v
+vlog half_adder_tb.v +acc
+vsim work.half_adder_tb +acc
+add wave -r * 
+run -all
+```
+### TRANSCRIPT
+<img width="987" height="640" alt="monitor for full adder transcripot" src="https://github.com/user-attachments/assets/4a809c32-1dd1-409e-9525-937b56c92c72" />
+
+
+<br>
+### WAVEFORM
+<img width="1908" height="426" alt="full adder waveform" src="https://github.com/user-attachments/assets/24e4e40d-6571-4160-b5b1-a2e1ccaf93c3" />
