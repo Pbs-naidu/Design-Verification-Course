@@ -60,8 +60,8 @@
 <img width="1888" height="343" alt="nor waveform" src="https://github.com/user-attachments/assets/7c0558bb-592b-457f-a2c3-ed47da446806" /><br>
 
 
-# Full adder ,Half adder
-## introducing $monitor,$strobe,$write,$display in the code
+# Full Adder ,Half Adder  (26/03/2026)
+## Introducing $monitor,$strobe,$write,$display in the code
 ## HALF ADDER
 ### VERILOG CODE
 ### Data Flow Model
@@ -286,8 +286,7 @@ run -all
 ```
 ### TRANSCRIPT
 <img width="987" height="640" alt="monitor for full adder transcripot" src="https://github.com/user-attachments/assets/4a809c32-1dd1-409e-9525-937b56c92c72" />
-
-
 <br>
+
 ### WAVEFORM
 <img width="1908" height="426" alt="full adder waveform" src="https://github.com/user-attachments/assets/24e4e40d-6571-4160-b5b1-a2e1ccaf93c3" />
