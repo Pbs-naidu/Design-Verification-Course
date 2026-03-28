@@ -292,7 +292,7 @@ run -all
 
 
 #### 5) $monitor and $finish 
-I) $finish in code
+5.1) $finish in code
 ```bash
 
 module full_adder_tb();
@@ -329,7 +329,7 @@ run -all
 <img width="956" height="632" alt="$finish for full adder" src="https://github.com/user-attachments/assets/0c019f79-b804-464d-b786-5879afa1762b" />
 <br>
 
-II) $monitor and $finish in code
+5.2) $monitor and $finish in code
 ```bash
 module full_adder_tb();
 reg [2:0] a1;
