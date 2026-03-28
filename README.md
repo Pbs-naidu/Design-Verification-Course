@@ -61,7 +61,7 @@
 
 
 # Full Adder ,Half Adder  (26/03/2026)
-## Introducing $monitor,$strobe,$write,$display in the code
+## Introducing $monitor,$strobe,$write,$display,$finish,$stop in the code
 ## HALF ADDER
 ### VERILOG CODE
 ### Data Flow Model
