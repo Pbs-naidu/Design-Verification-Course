@@ -252,7 +252,7 @@ run -all
 <img width="1918" height="646" alt="display vs strobe transcript" src="https://github.com/user-attachments/assets/838f05a0-a160-461a-bda0-d9031a9d66bd" />
 <br>
 
-#### 4) $strobe and $display 
+#### 4) $monitor and $stop 
 ```bash
 
 module full_adder_tb();
@@ -268,6 +268,7 @@ a1=3'b001;
 #5; a1=3'b010;
 #5; a1=3'd3;
 #5; a1=3'd4;
+#5; $stop();
 #5; a1=3'd5;
 #5; a1=3'd6;
 #5; a1=3'd7;
@@ -285,7 +286,84 @@ add wave -r *
 run -all
 ```
 ### TRANSCRIPT
-<img width="987" height="640" alt="monitor for full adder transcripot" src="https://github.com/user-attachments/assets/4a809c32-1dd1-409e-9525-937b56c92c72" />
+<img width="878" height="622" alt="$stop for full adder script" src="https://github.com/user-attachments/assets/a9384a1d-5e9b-495f-b908-49d0bdd300b6" />
+
+<br>
+
+
+#### 5) $monitor and $finish 
+I)$finish in code
+```bash
+
+module full_adder_tb();
+reg [2:0] a1;
+wire sum,carry;
+
+full_adder dut(.a1(a1), .s(sum), .c(carry));
+initial begin
+//$monitor("time = %t,a1=%b,sum=%b,carry=%b",$time,a1,sum,carry);
+a1=3'b000;
+#5; 
+a1=3'b001;
+#5; a1=3'b010;
+#5; a1=3'd3;
+#5; a1=3'd4;
+#5; a1=3'd5;
+#5; a1=3'd6;
+#5; a1=3'd7;
+#10; $finish();
+end
+endmodule
+
+```
+### RUN
+```bash
+vlib work 
+vlog half_adder.v
+vlog half_adder_tb.v +acc
+vsim work.half_adder_tb +acc
+add wave -r * 
+run -all
+```
+### TRANSCRIPT
+<img width="956" height="632" alt="$finish for full adder" src="https://github.com/user-attachments/assets/0c019f79-b804-464d-b786-5879afa1762b" />
+<br>
+
+II)$monitor and $finish in code
+```bash
+module full_adder_tb();
+reg [2:0] a1;
+wire sum,carry;
+
+full_adder dut(.a1(a1), .s(sum), .c(carry));
+initial begin
+$monitor("time = %t,a1=%b,sum=%b,carry=%b",$time,a1,sum,carry);
+a1=3'b000;
+#5; 
+a1=3'b001;
+#5; a1=3'b010;
+#5; a1=3'd3;
+#5; a1=3'd4;
+#5; a1=3'd5;
+#5; a1=3'd6;
+#5; a1=3'd7;
+#10; $finish();
+end
+endmodule
+
+```
+### RUN
+```bash
+vlib work 
+vlog half_adder.v
+vlog half_adder_tb.v +acc
+vsim work.half_adder_tb +acc
+add wave -r * 
+run -all
+```
+### TRANSCRIPT
+<img width="960" height="637" alt="$finish_monitor for full adder" src="https://github.com/user-attachments/assets/6b1182bb-9612-4585-b18a-bb5843b39011" />
+
 <br>
 
 ### WAVEFORM
