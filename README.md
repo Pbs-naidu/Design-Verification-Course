@@ -58,3 +58,67 @@
 <img width="1083" height="503" alt="nor script" src="https://github.com/user-attachments/assets/3f3fc57c-c760-42db-b925-27b5b6675600" /><br>
 ### WAVEFORM
 <img width="1888" height="343" alt="nor waveform" src="https://github.com/user-attachments/assets/7c0558bb-592b-457f-a2c3-ed47da446806" /><br>
+
+
+# Full adder ,Half adder
+## introducing $monitor,$strobe,$write,$display in the code
+## HALF ADDER
+### VERILOG CODE
+### Data Flow Model
+```bash
+module half_adder(
+input [1:0] a,
+output sum,carry
+);
+
+//Data flow
+//assign sum = a[0]^a[1];
+//assign carry = a[0]&a[1];
+
+endmodule
+```
+### Gate level Model
+```bash
+module half_adder(
+input [1:0] a,
+output sum,carry
+);
+
+//gate level
+xor a1(sum,a[1],a[0]);
+and a2(carry,a[1],a[0]);
+
+endmodule
+
+```
+### TESTBENCH
+```bash
+module half_adder_tb();
+reg [1:0] a;
+wire sum,carry;
+
+half_adder dut(.*);
+initial begin
+a=2'b00;
+#5; a=2'b01;
+#5; a=2'b10;
+#5; a=2'd3;
+
+end
+
+endmodule
+
+```
+### RUN
+```bash
+vlib work 
+vlog half_adder.v
+vlog half_adder_tb.v +acc
+vsim work.half_adder_tb +acc
+add wave -r * 
+run -all
+```
+### TRANSCRIPT
+<img width="988" height="467" alt="script half adder" src="https://github.com/user-attachments/assets/92feb676-2ef3-4060-8009-f54d3b9459de" /><br>
+### WAVEFORM
+<img width="1888" height="343" alt="nor waveform" src="https://github.com/user-attachments/assets/7c0558bb-592b-457f-a2c3-ed47da446806" /><br>
