@@ -368,3 +368,67 @@ run -all
 
 ### WAVEFORM
 <img width="1908" height="426" alt="full adder waveform" src="https://github.com/user-attachments/assets/24e4e40d-6571-4160-b5b1-a2e1ccaf93c3" />
+
+# Behavioural Model (31/03/2026)
+## 1.Continuous
+## 2.Sequential
+
+# 1 Continious 
+## XOR GATE
+### Design Code:
+```bash
+module xorgate(
+input a,b,
+output reg y 
+
+);
+
+always@( a or b ) // also can be used as a,b
+begin
+	if(a==1'b0 && b==1'b0)
+		y=1'b0;
+	else if(a==1'b0 && b==1'b1)
+		y=1'b1;
+	else if(a==1'b1 && b==1'b0)
+		y=1'b1;
+	else if(a==1'b1 && b==1'b1)
+		y=1'b0;
+	else
+	y= 'x;
+
+end
+
+endmodule
+```
+### Testbench:
+```bash
+module xorgate_tb;
+reg a,b;
+wire y;
+
+xorgate dut (a,b,y);
+
+initial 
+begin 
+$monitor ("time=%t,a=%b,b=%b,y=%b",$time,a,b,y);
+
+#5;a=1;b=0;
+#5;a=0;b=0;
+#5;a=0;b=1;
+#5;a=1;b=1;
+
+#5;$finish();
+end
+
+endmodule
+
+```
+### RUN
+```bash
+vlib work 
+vlog xorgate.v
+vlog xorgate_tb.v +acc
+vsim work.xorgate_tb +acc
+add wave -r * 
+run -all
+```
