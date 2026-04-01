@@ -373,7 +373,7 @@ run -all
 ## 1.Continuous
 ## 2.Sequential
 
-# 1 Continious 
+# 1.Continious 
 ## XOR GATE
 ### Design Code:
 ```bash
