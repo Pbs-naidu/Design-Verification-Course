@@ -681,7 +681,7 @@ run -all
 
 <br>
 
-[Day-5] (Day-5/D-Flipflop & SISO.md)
+[Day 5 - D Flipflop & SISO](https://github.com/Pbs-naidu/Design-Verification-Course/blob/ade3592cf4561166abc7ac026574af8dcaf43d6d/Day-5/D-Flipflop%20%26%20SISO.md)
 ## 3.D Flipflop (02/04/2026)
 ### Design Code:
 ```bash
