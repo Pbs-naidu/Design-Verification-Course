@@ -568,4 +568,55 @@ run -all
 ### waveform:
 <img width="1893" height="432" alt="casex priority encode waveform" src="https://github.com/user-attachments/assets/65c5d91b-dcde-47a5-956d-ab9649c2f948" /><br>
 
+# Flipflops
+## 1.jk Flipflop 
+### Design Code:
+```bash
+module jk_ff(
+	input clk,rst,j,k,
+	output reg q
+);
 
+always @(posedge clk)
+begin
+	if(j == 1'b0 && k == 1'b0)
+		q<= q;
+	else if(j == 1'b0 && k == 1'b1)
+		q<=1'b0;
+	else if(j == 1'b1 && k == 1'b0)
+		q<=1'b1;
+	else
+		q<=~q;
+end
+endmodule
+```
+### Testbench:
+```bash
+module jk_ff_tb;
+
+reg clk,rst,j,k;
+wire q;
+jk_ff dut(.*);
+always #5 clk=~clk;
+	initial begin
+    clk=0;rst=1;j=0;k=1;
+	clk=0;j=1;k=0;
+	#10;j=0;k=1;
+	#10;j=0;k=0;
+	#10;j=1;k=1;
+	#10;$finish();
+end
+endmodule
+```
+### RUN
+```bash
+vlib work 
+vlog jk_ff.v
+vlog jk_ff_tb.v +acc
+vsim work.jk_ff_tb +acc
+add wave -r * 
+run -all
+```
+### waveform:
+<img width="1888" height="313" alt="jk flipfliop waveform after removing @posedge from test bench" src="https://github.com/user-attachments/assets/df1a6cd6-3fd3-46c5-af0d-61946404e939" />
+<br>
