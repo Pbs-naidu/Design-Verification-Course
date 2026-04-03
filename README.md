@@ -681,6 +681,7 @@ run -all
 
 <br>
 
+[View Day 5](./Day-5/)
 ## 3.D Flipflop (02/04/2026)
 ### Design Code:
 ```bash
