@@ -51,7 +51,7 @@ run -all
 <img width="1888" height="313" alt="jk flipfliop waveform after removing @posedge from test bench" src="https://github.com/user-attachments/assets/df1a6cd6-3fd3-46c5-af0d-61946404e939" />
 <br>
 
-## 2.T Flipflop (02/04/2026)
+## 2.T Flipflop 
 ### Design Code:
 ```bash
 module t_ff(
