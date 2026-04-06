@@ -194,3 +194,53 @@ run -all
 
 
 <br>
+
+## LFSR (Linear Feedback Shift Register)
+### Design Code:
+```bash
+module lfsr(
+	input clk,rst,
+	output reg [3:0] q
+	);
+	always @(posedge clk)
+	begin
+	if(rst)
+	q<= 4'b1011;//load some data
+	else
+	begin
+	q[3]<=((q[1] ^ q[0])^q[3]);
+	q[2]<=q[3];
+	q[1]<=q[2];
+	q[0]<=q[1];
+	end
+	end
+	endmodule
+```
+### Testbench:
+```bash
+module lfsr_tb;
+	reg clk,rst;
+	wire [3:0] q;
+	lfsr dut(.*);
+	always #5 clk=~clk;
+	initial 
+	begin
+	clk=0;rst=1;
+	#10; rst=0;
+	#100; $finish();
+	end
+endmodule
+```
+### RUN
+```bash
+vlib work 
+vlog lfsr.v
+vlog lfsr_tb.v +acc
+vsim work.lfsr_tb +acc
+add wave -r * 
+run -all
+```
+### waveform:
+<img width="1885" height="205" alt="lfsr waveform" src="https://github.com/user-attachments/assets/1f98d551-ee8b-4010-9477-bf224f46f10a" />
+
+<br>
