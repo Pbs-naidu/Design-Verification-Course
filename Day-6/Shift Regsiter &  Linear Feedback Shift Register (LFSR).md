@@ -245,7 +245,7 @@ run -all
 
 <br>
 
-## USR (Universal Shift Register) (06/04/2026)
+## USR (Universal Shift Register) 
 ### Design Code:
 ```bash
 //universal shift register
