@@ -282,7 +282,7 @@ run -all
 <br>
 
 ## Moore FSM 1011
-### Design Code:
+### Design Code: `bat`
 ```bash
 module 1011_moore(
 input clk,rst,din,
