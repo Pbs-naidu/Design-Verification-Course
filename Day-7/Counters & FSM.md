@@ -295,7 +295,6 @@ localparam idle =3'b000,
 			s101=3'b011,
 			s1011=3'b100;
 	reg [2:0] p_state,n_state; 
-	
 	assign detected = (p_state == s1011)?1'b1:1'b0;
 	
 	always @(posedge clk or negedge rst)
