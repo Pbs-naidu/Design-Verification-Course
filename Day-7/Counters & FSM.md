@@ -285,6 +285,7 @@ run -all
 ### Design Code:
 ```bash
 module 1011_moore(
+
 input clk,rst,din,
 output reg detected
 );
@@ -294,7 +295,8 @@ localparam idle =3'b000,
 			s10=3'b010,
 			s101=3'b011,
 			s1011=3'b100;
-	reg [2:0] p_state,n_state; 
+	reg [2:0] p_state,n_state; //present state //next state
+	
 	assign detected = (p_state == s1011)?1'b1:1'b0;
 	
 	always @(posedge clk or negedge rst)
@@ -304,7 +306,10 @@ localparam idle =3'b000,
 				else
 				p_state <=n_state;
 		end
-    always @(*)
+    always @(*)//* means only input takes
+	//depending on input you are going to next state from present state
+//combinational circuit
+//state changes only by present input
 		begin	
 			case(p_state)
     idle: begin
