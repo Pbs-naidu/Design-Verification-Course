@@ -355,7 +355,37 @@ endmodule
 ```
 ### Testbench:
 ```bash
+module moore_1011_tb;
+    reg clk, rst, din;
+    wire detected;
 
+    moore_1011 dut (.*);
+
+    always #5 clk = ~clk;
+
+   initial
+begin
+    clk=0; rst=1; din=1'b1; @(posedge clk);
+    rst=0; din=1'b1; @(posedge clk);
+    din=1'b0; @(posedge clk);
+    din=1'b1; @(posedge clk);
+    din=1'b1; @(posedge clk);
+    din=1'b0; @(posedge clk);
+    din=1'b1; @(posedge clk);
+    din=1'b0; @(posedge clk);
+    din=1'b1; @(posedge clk);
+    din=1'b1; @(posedge clk);
+    din=1'b1; @(posedge clk);
+    din=1'b0; @(posedge clk);
+    din=1'b1; @(posedge clk);
+    din=1'b1; @(posedge clk);
+    din=1'b0; @(posedge clk);
+    @(posedge clk);
+    @(posedge clk);
+    $finish();
+end
+
+endmodule
 ```
 ### RUN
 ```bash
