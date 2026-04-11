@@ -280,3 +280,91 @@ run -all
 
 
 <br>
+
+## Moore FSM 1011
+### Design Code:
+```bash
+module 1011_moore(
+input clk,rst,din,
+output reg detected
+);
+
+localparam idle =3'b000,
+			s1=3'b001,
+			s10=3'b010,
+			s101=3'b011,
+			s1011=3'b100;
+	reg [2:0] p_state,n_state; 
+	
+	assign detected = (p_state == s1011)?1'b1:1'b0;
+	
+	always @(posedge clk or negedge rst)
+		begin
+			if(rst) //rst == 1
+				p_staet <= idle;
+				else
+				p_state <=n_state;
+		end
+    always @(*)
+		begin	
+			case(p_state)
+    idle: begin
+        if(din)    ///din==1
+            n_state = s1;
+        else       //din==0
+            n_state = idle;
+    end
+
+    s1 : begin
+        if(din)    //din ==1
+            n_state = s1
+        else       //din ==0
+            n_state = s10;
+    end
+	
+	s10 : begin
+    if(!din)   //din ==0
+        n_state = idle;
+    else       //din ==1
+        n_state = s101;
+end
+
+s101 : begin
+    if(din)    //din ==1
+        n_state = s1011;
+    else       //din ==0
+        n_state = s10;
+end
+
+s101 : begin
+    if(din)   //din ==1
+        n_state = s1011;
+    else      //din ==0
+        n_state = s10;
+end
+
+s1011 : begin
+    if(din)   //din ==1
+        n_state = s1;    //overlapping
+    else      //din ==0
+        n_state = s10;   //nonoverlapping
+end
+
+default:n_state = idle;
+
+endcase
+end
+endmodule
+```
+### Testbench:
+```bash
+
+```
+### RUN
+```bash
+
+```
+### waveform:
+
+
+<br>
