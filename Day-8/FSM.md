@@ -233,4 +233,47 @@ run -all
 
 
 <br>
+## Mealy FSM 1011 with Repeat random inputs
+### Design Code:
+```bash
+module mealy_1011_tb;
+    reg clk, rst, din;
+    wire detected;
 
+    mealy_1011 dut (.*);
+
+    always #5 clk = ~clk;
+
+   initial
+begin
+    clk=0; rst=1; din=1'b1; @(posedge clk);
+    rst=0; din=1'b1; @(posedge clk);
+	repeat(30)
+	begin
+	din = $random;@(posedge clk);
+	end
+    @(posedge clk);
+    @(posedge clk);
+    $finish();
+end
+
+endmodule
+```
+### Testbench:
+```bash
+
+```
+### RUN
+```bash
+vlib work 
+vlog mealy_1011.v
+vlog mealy_1011_tb.v +acc
+vsim work.mealy_1011_tb +acc
+add wave -r * 
+run -all
+```
+### waveform:
+<img width="1897" height="181" alt="mealy 1011 waveform" src="https://github.com/user-attachments/assets/d30e3284-6227-438b-8ea0-023c94e49cff" />
+
+
+<br>
