@@ -33,3 +33,15 @@ function integer [1:0] carry();//return data type is integer
     carry = {sum, c} //function only returns single variable value
 endfunction
 ```
+## Task
+```bash
+task automatic integer barry();
+    input a,b;
+    output s,c;
+    inout y;
+    sum = a ^ b; #5; 
+    c = a . b; #7;
+    i = 1;
+    i = 0; i = 1; 2; 3; 0000 //automatic does remember the values because of seperate memory allocation each time
+endtask
+```
