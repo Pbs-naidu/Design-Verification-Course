@@ -273,7 +273,8 @@ add wave -r *
 run -all
 ```
 ### waveform:
-<img width="1897" height="181" alt="mealy 1011 waveform" src="https://github.com/user-attachments/assets/d30e3284-6227-438b-8ea0-023c94e49cff" />
+<img width="1903" height="336" alt="mealy 1011 with repeat" src="https://github.com/user-attachments/assets/3e50d3c5-2f4e-4f13-a6d9-6a1681f560e4" />
+
 
 
 <br>
