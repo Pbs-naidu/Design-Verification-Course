@@ -233,8 +233,70 @@ run -all
 
 
 <br>
-## Mealy FSM 1011 with Repeat
-### Design Code:
+
+## Mealy FSM 1011
+### Design Code: 
+```bash
+module mealy_1011(
+
+input clk,rst,din,
+output detected
+);
+
+localparam idle =3'b000,
+			s1=3'b001,
+			s10=3'b010,
+			s101=3'b011,
+			
+	reg [2:0] p_state,n_state; 
+	
+	assign detected = (p_state == s101)?1'b1:1'b0;
+	
+	always @(posedge clk or negedge rst)
+		begin
+			if(rst) 
+				p_state <= idle;
+				else
+				p_state <=n_state;
+		end
+    always @(*)
+		begin	
+			case(p_state)
+    idle: begin
+        if(din)    
+            n_state = s1;
+        else       
+            n_state = idle;
+    end
+
+    s1 : begin
+        if(din)  
+            n_state = s1;
+        else     
+            n_state = s10;
+    end
+	
+	s10 : begin
+    if(!din)   //din ==0
+        n_state = idle;
+    else       //din ==1
+        n_state = s101;
+end
+
+s101 : begin
+    if(din)    
+        n_state = s1;
+    else     
+        n_state = s10;
+end
+
+default:n_state = idle;
+
+endcase
+end
+endmodule
+```
+### Testbench:
 ```bash
 module mealy_1011_tb;
     reg clk, rst, din;
@@ -249,7 +311,7 @@ begin
     clk=0; rst=1; din=1'b1; @(posedge clk);
     rst=0; din=1'b1; @(posedge clk);
 	repeat(30)
-	begin
+begin
 	din = $random;@(posedge clk);
 	end
     @(posedge clk);
@@ -258,10 +320,6 @@ begin
 end
 
 endmodule
-```
-### Testbench:
-```bash
-
 ```
 ### RUN
 ```bash
@@ -273,8 +331,8 @@ add wave -r *
 run -all
 ```
 ### waveform:
-<img width="1903" height="336" alt="mealy 1011 with repeat" src="https://github.com/user-attachments/assets/3e50d3c5-2f4e-4f13-a6d9-6a1681f560e4" />
-
+<img width="1897" height="181" alt="mealy 1011 waveform" src="https://github.com/user-attachments/assets/d30e3284-6227-438b-8ea0-023c94e49cff" />
 
 
 <br>
+
