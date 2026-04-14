@@ -42,6 +42,7 @@ task automatic integer barry();
     sum = a ^ b; #5; 
     c = a . b; #7;
     i = 1;
-    i = 0; i = 1; 2; 3; 0000 //automatic does remember the values because of seperate memory allocation each time
+    i = 0; i = 1; 2; 3; 0000 //automatic doesn't remember the values because of seperate memory allocation each time
+                             // static remembers the value due to same allocation of memory
 endtask
 ```
