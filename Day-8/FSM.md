@@ -234,7 +234,7 @@ run -all
 
 <br>
 
-## Mealy FSM 1011
+## Mealy FSM 1011 with Repeat and $random
 ### Design Code: 
 ```bash
 module mealy_1011(
@@ -331,7 +331,8 @@ add wave -r *
 run -all
 ```
 ### waveform:
-<img width="1897" height="181" alt="mealy 1011 waveform" src="https://github.com/user-attachments/assets/d30e3284-6227-438b-8ea0-023c94e49cff" />
+<img width="1903" height="336" alt="mealy 1011 with repeat" src="https://github.com/user-attachments/assets/69208200-8694-4d91-911b-6715f812da03" />
+
 
 
 <br>
