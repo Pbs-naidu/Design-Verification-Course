@@ -1,7 +1,10 @@
 # Compiler Directives (08/04/2026)
-1.`include
-2.`timescale
-3.`define
+1.`include 
+
+2.`timescale 
+
+3.`define 
+
 ```bash
 `timescale 1ns/1ns
 `include "fulladder_dut.v"
