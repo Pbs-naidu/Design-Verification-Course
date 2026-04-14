@@ -233,7 +233,7 @@ run -all
 
 
 <br>
-## Mealy FSM 1011 with Repeat random inputs
+## Mealy FSM 1011 with Repeat
 ### Design Code:
 ```bash
 module mealy_1011_tb;
