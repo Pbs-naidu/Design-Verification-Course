@@ -333,7 +333,5 @@ run -all
 ### waveform:
 <img width="1903" height="336" alt="mealy 1011 with repeat" src="https://github.com/user-attachments/assets/69208200-8694-4d91-911b-6715f812da03" />
 
-
-
 <br>
 
