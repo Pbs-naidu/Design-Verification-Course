@@ -6,21 +6,21 @@
    logic b; 
    bit [3:0] c; 
    integer d;
-   reg [7:0] g byte f;
+   reg [7:0] e;
+   byte f;
    real g;
    initial 
      begin
        $display("a = %0d", a);
        $display("b = %b", b); 
-       $display(‘c = %b", c);
+       $display("c = %b", c);
        $display("d = %0d", d); 
-       $display(e = %b", e);
+       $display("e = %b", e);
        $display("f = %0d", f);
-       $display('g = %f", g); 
+       $display("g = %f", g); 
                                   
       end
-
-endmodule
+ endmodule
 ```
 
 ## Results:
