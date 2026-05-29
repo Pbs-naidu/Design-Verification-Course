@@ -37,3 +37,18 @@ endmodule
 ## Results:
 <img width="766" height="741" alt="image" src="https://github.com/user-attachments/assets/96b86062-d3f9-436c-8cff-b3794cd23ff2" />
 <img width="743" height="192" alt="image" src="https://github.com/user-attachments/assets/efffc6d9-3ff5-4d5a-9768-ab17b6153af5" />
+
+## Print index = index element using unpacked array
+
+```bash
+module SV;
+  int array_ele [0:3] = '{2,1,6,3};
+  int q[$];
+  initial begin
+    q=array_ele.find with (item==item.index);
+    $display(q); 
+  end  
+endmodule
+```
+## Result:
+<img width="966" height="319" alt="image" src="https://github.com/user-attachments/assets/23355c37-3ecb-42b7-b45b-3a10730cae08" />
