@@ -123,3 +123,28 @@ endmodule
 
 ## Result:
 <img width="967" height="310" alt="image" src="https://github.com/user-attachments/assets/e3788db4-f6e4-4248-902c-78806bfdd9e7" />
+
+## Union
+### Union vs Structure Both are same only difference is union different Data Types Shares Same Memory
+
+```bash
+module union_example;
+typedef union {
+    bit [15:0] salary;
+    integer    id;
+} employee;
+
+initial begin
+    employee emp;
+
+    emp.salary = 'h800;
+    $display("salary updated for EMP: %p", emp);
+
+    emp.id = 'd1234;
+    $display("ID updated for EMP: %p", emp); // Note: Salary information will be lost
+end
+
+endmodule
+```
+## Result:
+<img width="964" height="320" alt="image" src="https://github.com/user-attachments/assets/71dc982c-32ce-464b-be48-c3118a36c1d9" />
