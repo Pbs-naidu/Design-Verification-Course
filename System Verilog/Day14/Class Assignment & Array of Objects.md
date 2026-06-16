@@ -59,3 +59,35 @@ endmodule
 
 ## Result:
 <img width="796" height="332" alt="image" src="https://github.com/user-attachments/assets/9ad848b0-135c-46fa-8f34-1ca8f2b5aa78" />
+
+## Dynamic Array
+
+```bash
+class ex_dynamic;
+    bit [31:0] data;
+    int id;
+endclass
+
+module example;
+
+    ex_dynamic tr[];
+  	
+    initial begin
+      tr=new[6];
+        foreach (tr[i]) begin
+          	tr[i] = new();
+            tr[i].data = i * i;
+            tr[i].id   = i + 1;
+        end
+
+        foreach (tr[i])
+            $display("data=%0d id=%0d", tr[i].data, tr[i].id);
+
+    end
+
+endmodule
+
+```
+
+## Result:
+<img width="802" height="335" alt="image" src="https://github.com/user-attachments/assets/0874d792-8a8b-46a0-80d3-a9aea899dd74" />
