@@ -91,3 +91,35 @@ endmodule
 
 ## Result:
 <img width="802" height="335" alt="image" src="https://github.com/user-attachments/assets/0874d792-8a8b-46a0-80d3-a9aea899dd74" />
+
+## Associative Array
+
+```bash
+
+class ex_associate;
+    bit [31:0] data;
+    int id;
+endclass
+
+module example;
+
+  ex_associate tr[int];
+  	
+    initial begin
+      
+      for(int i=0;i<6;i=i+1) begin
+          	tr[i] = new();
+            tr[i].data = i * i;
+            tr[i].id   = i + 1;
+        end
+
+        foreach (tr[i])
+            $display("data=%0d id=%0d", tr[i].data, tr[i].id);
+
+    end
+
+endmodule
+
+```
+## Result:
+<img width="763" height="335" alt="image" src="https://github.com/user-attachments/assets/301a49eb-5ce6-4be6-a33d-0780ef2062b3" />
