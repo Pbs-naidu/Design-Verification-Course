@@ -33,9 +33,9 @@ endmodule
 ## Result:
 <img width="808" height="328" alt="image" src="https://github.com/user-attachments/assets/b293f672-35c8-44d6-94da-02d8191f4b3c" />
 
-## "this" keyword usage
+## "this" keyword usage only for Non-Static
 
-### 1.Without this keyword
+### 1. Without this keyword
 ```bash
 class transaction;
 
@@ -64,7 +64,7 @@ endmodule
 ## Result:
 <img width="840" height="330" alt="image" src="https://github.com/user-attachments/assets/14f4de52-02dd-4820-a36e-13f96ef232c5" />
 
-### 2.with "this" Keyword
+### 2. with "this" Keyword
 
 ```bash
 class transaction;
