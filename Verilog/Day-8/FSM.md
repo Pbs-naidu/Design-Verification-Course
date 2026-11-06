@@ -139,7 +139,8 @@ localparam idle =3'b000,
 			
 	reg [2:0] p_state,n_state; 
 	
-	assign detected = (p_state == s101)?1'b1:1'b0;
+	//assign detected = (p_state == s101)?1'b1:1'b0;
+assign detected = (p_state == s101 && din == 1'b1) ? 1'b1 : 1'b0; //mealy FSM
 	
 	always @(posedge clk or negedge rst)
 		begin
